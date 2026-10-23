@@ -1,0 +1,1069 @@
+/* =========================================
+   SHUHANE SERVICES
+   Identité : logistique éditoriale
+   ========================================= */
+
+/* 1. Variables */
+
+:root {
+  --paper: #f5f1ea;
+  --paper-2: #efe9df;
+  --white: #ffffff;
+  --ink: #141414;
+  --ink-soft: #4b463f;
+  --orange: #ff5a1f;
+  --orange-dark: #ec4c16;
+  --line: #141414;
+  --radius: 2px;
+}
+
+/* 2. Base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Archivo", Inter, system-ui, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: min(1180px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.container > *,
+.hero-grid > *,
+.hero-visual > *,
+.services > *,
+.process > *,
+.pack > *,
+.contact-grid > *,
+.form-grid > *,
+.section-head > * {
+  min-width: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Archivo Black", "Archivo", system-ui, sans-serif;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+}
+
+h2 {
+  font-size: clamp(1.9rem, 4.4vw, 3.1rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+p {
+  color: var(--ink-soft);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 5px;
+}
+
+/* 3. En-tête et navigation */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: var(--paper);
+  border-bottom: 2px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 72px;
+}
+
+.logo {
+  flex-shrink: 0;
+  font-family: "Archivo Black", system-ui, sans-serif;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+}
+
+.logo span {
+  display: block;
+  color: var(--orange);
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nav a:not(.btn) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 0.25rem;
+}
+
+.nav a:not(.btn)::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--orange);
+  content: "";
+  transition: width 180ms ease;
+}
+
+.nav a:not(.btn):hover::after {
+  width: 100%;
+}
+
+/* 4. Boutons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0.85rem 1.35rem;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    background-color 120ms ease;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--line);
+}
+
+.btn:active {
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: var(--ink);
+}
+
+.btn-primary:hover {
+  background: var(--orange-dark);
+}
+
+.btn-dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: #08280f;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* 5. Introduction */
+
+.hero {
+  position: relative;
+  padding: 5.5rem 0 4rem;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20, 20, 20, 0.055) 1px,
+      transparent 1px
+    ) 0 0 / 72px 100%,
+    var(--paper);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.kicker::before {
+  flex-shrink: 0;
+  width: 34px;
+  height: 2px;
+  background: var(--orange);
+  content: "";
+}
+
+.hero h1 .accent {
+  color: var(--orange);
+}
+
+.lead {
+  max-width: 620px;
+  margin: 1.5rem 0 2rem;
+  font-size: 1.08rem;
+}
+
+.hero-actions,
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.7rem;
+  border: 2px solid var(--line);
+  background: var(--white);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tag::before {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--orange);
+  content: "";
+}
+
+/* 6. Visuel superposé
+   Grille partagée : les blocs se chevauchent,
+   mais leur hauteur reste liée au contenu. */
+
+.hero-visual {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto auto auto;
+  align-items: start;
+  width: 100%;
+  padding: 1.5rem 0.75rem 0.75rem 0;
+  isolation: isolate;
+}
+
+.box {
+  position: relative;
+  min-width: 0;
+  padding: 1.4rem;
+  border: 2px solid var(--line);
+  background: var(--white);
+  box-shadow: 8px 8px 0 var(--line);
+}
+
+.box strong {
+  display: block;
+  font-family: "Archivo Black", system-ui, sans-serif;
+  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+  line-height: 1.15;
+}
+
+.box small {
+  display: block;
+  margin-top: 0.65rem;
+  font-size: 0.72rem;
+  line-height: 1.7;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.box p {
+  color: inherit;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.box-label {
+  position: absolute;
+  top: -1rem;
+  left: 1rem;
+  max-width: calc(100% - 2rem);
+  padding: 0.35rem 0.65rem;
+  background: var(--orange);
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Blanc : derrière les deux autres blocs */
+
+.box-1 {
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  grid-column: 1 / 10;
+  grid-row: 1 / 3;
+  align-self: stretch;
+  gap: 1rem 0;
+  padding-top: 2rem;
+}
+
+.box-1 > div {
+  grid-column: 1 / 6;
+}
+
+.box-1 > p {
+  grid-column: 1 / -1;
+  align-self: end;
+  padding-top: 1.5rem;
+}
+
+/* Noir : chevauche le bas du blanc */
+
+.box-2 {
+  z-index: 2;
+  grid-column: 6 / -1;
+  grid-row: 3;
+  margin-top: -0.75rem;
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 8px 8px 0 var(--orange);
+}
+
+.box-2 p {
+  margin-top: 0.8rem;
+}
+
+/* Orange : sa hauteur s'adapte intégralement au texte */
+
+.box-3 {
+  z-index: 3;
+  grid-column: 8 / 12;
+  grid-row: 1;
+  margin-top: -1.5rem;
+  padding: 1rem;
+  background: var(--orange);
+  color: var(--ink);
+  box-shadow: 6px 6px 0 var(--line);
+}
+
+.box-3 strong {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.box-3 p {
+  margin-top: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+/* 7. Sections */
+
+.section {
+  padding: 5rem 0;
+  border-top: 2px solid var(--line);
+}
+
+.section-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: end;
+  gap: 1.4rem;
+  margin-bottom: 2.6rem;
+}
+
+.section-number {
+  color: transparent;
+  font-family: "Archivo Black", system-ui, sans-serif;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  line-height: 1;
+  -webkit-text-stroke: 2px var(--ink);
+}
+
+.section-head p {
+  max-width: 620px;
+  margin-top: 0.7rem;
+}
+
+/* 8. Services */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px;
+  border: 2px solid var(--line);
+  background: var(--line);
+}
+
+.service {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 330px;
+  padding: 2rem;
+  background: var(--paper);
+  transition: background-color 150ms ease;
+}
+
+.service:nth-child(2) {
+  background: var(--paper-2);
+}
+
+.service:hover {
+  background: var(--white);
+}
+
+.service-num {
+  color: var(--ink-soft);
+  font-family: "Archivo Black", system-ui, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+}
+
+.service h3 {
+  margin: 0.7rem 0 0.8rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.service-link::after {
+  content: "→";
+  transition: transform 150ms ease;
+}
+
+.service:hover .service-link::after {
+  transform: translateX(5px);
+}
+
+/* 9. Listes */
+
+.check-list {
+  margin: 1.8rem 0 2rem;
+}
+
+.check-list li {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.18);
+  color: var(--ink);
+}
+
+.check-list li::before {
+  flex-shrink: 0;
+  color: var(--orange);
+  font-weight: 900;
+  content: "✓";
+}
+
+/* 10. Pack */
+
+.pack {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  border: 2px solid var(--line);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.pack-main {
+  padding: 3rem;
+  border-right: 2px solid var(--line);
+}
+
+.pack-main h2 {
+  color: var(--paper);
+}
+
+.pack-main p {
+  margin-top: 1rem;
+  color: #c9c2b8;
+}
+
+.pack-main .section-number {
+  margin-bottom: 1rem;
+  -webkit-text-stroke-color: var(--orange);
+}
+
+.pack-main .check-list li {
+  border-bottom-color: rgba(245, 241, 234, 0.22);
+  color: var(--paper);
+}
+
+.pack-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem;
+  background: var(--orange);
+  color: var(--ink);
+}
+
+.pack-side h3 {
+  font-size: 1.5rem;
+}
+
+.pack-side p {
+  margin-top: 1rem;
+  color: var(--ink);
+}
+
+.pack-side .btn {
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.pack-side .btn:hover {
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+/* 11. Méthode */
+
+.process {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2px;
+  border: 2px solid var(--line);
+  background: var(--line);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  padding: 1.8rem;
+  background: var(--paper);
+  transition: background-color 150ms ease;
+}
+
+.step:hover {
+  background: var(--white);
+}
+
+.step span {
+  color: var(--orange);
+  font-family: "Archivo Black", system-ui, sans-serif;
+  font-size: 2.3rem;
+  line-height: 1;
+}
+
+.step h3 {
+  margin: 0.9rem 0 0.5rem;
+}
+
+/* 12. Questions fréquentes */
+
+.faq {
+  max-width: 820px;
+}
+
+.faq details {
+  margin-bottom: 0.8rem;
+  border: 2px solid var(--line);
+  background: var(--white);
+}
+
+.faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  font-weight: 800;
+  line-height: 1.5;
+  text-transform: uppercase;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  flex-shrink: 0;
+  color: var(--ink);
+  font-size: 1.3rem;
+  line-height: 1;
+  content: "+";
+}
+
+.faq details[open] {
+  box-shadow: 6px 6px 0 var(--line);
+}
+
+.faq details[open] summary::after {
+  content: "−";
+}
+
+.faq p {
+  padding: 0 1.25rem 1.2rem;
+}
+
+/* 13. Contact et formulaire */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 3rem;
+}
+
+.contact-grid > div > h2 {
+  margin-block: 1rem;
+}
+
+.contact-actions {
+  margin-top: 1.8rem;
+}
+
+.form {
+  min-width: 0;
+  padding: 2rem;
+  border: 2px solid var(--line);
+  background: var(--white);
+  box-shadow: 8px 8px 0 var(--orange);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 0.85rem;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 1rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid var(--orange);
+  outline-offset: 2px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form .btn {
+  margin-top: 1rem;
+}
+
+.small {
+  margin-top: 0.8rem;
+  font-size: 0.75rem;
+}
+
+/* 14. Pied de page */
+
+.footer {
+  padding: 3rem 0 6rem;
+  border-top: 2px solid var(--orange);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer p {
+  color: var(--paper);
+}
+
+.footer strong {
+  font-family: "Archivo Black", system-ui, sans-serif;
+  text-transform: uppercase;
+}
+
+.footer a {
+  border-bottom: 2px solid var(--orange);
+  color: var(--paper);
+}
+
+/* 15. Contact flottant */
+
+.whatsapp-float {
+  position: fixed;
+  right: 1.1rem;
+  bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px));
+  z-index: 90;
+  padding: 0.85rem 1.1rem;
+  border: 2px solid var(--line);
+  background: var(--orange);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--line);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.whatsapp-float:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--line);
+}
+
+/* 16. Petits ordinateurs */
+
+@media (max-width: 1100px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-visual {
+    max-width: 600px;
+    margin-top: 1.5rem;
+    justify-self: center;
+  }
+
+  .nav {
+    gap: 0.9rem;
+  }
+}
+
+/* 17. Tablettes */
+
+@media (max-width: 960px) {
+  .header {
+    position: relative;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-block: 1rem;
+  }
+
+  .nav {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.7rem 1rem;
+  }
+
+  .nav .btn {
+    margin-left: auto;
+  }
+
+  section[id] {
+    scroll-margin-top: 1.5rem;
+  }
+
+  .services,
+  .process {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .service,
+  .step {
+    min-height: 0;
+  }
+
+  .pack,
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pack-main {
+    border-right: 0;
+    border-bottom: 2px solid var(--line);
+  }
+}
+
+/* 18. Téléphones */
+
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 2rem);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 8.5vw, 3.1rem);
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+
+  .hero {
+    padding: 2.5rem 0;
+  }
+
+  .kicker {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  .nav {
+    font-size: 0.75rem;
+  }
+
+  .nav .btn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .hero-actions,
+  .contact-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-actions .btn,
+  .contact-actions .btn {
+    width: 100%;
+  }
+
+  /* Superposition conservée sur téléphone */
+
+  .hero-visual {
+    margin-top: 1rem;
+  }
+
+  .box {
+    padding: 1.1rem;
+  }
+
+  .box-1 {
+    grid-column: 1 / 11;
+    padding-top: 2rem;
+  }
+
+  .box-1 > div {
+    grid-column: 1 / 6;
+  }
+
+  .box-1 strong {
+    font-size: 1.2rem;
+  }
+
+  .box small {
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+  }
+
+  .box-2 {
+    grid-column: 4 / -1;
+  }
+
+  .box-3 {
+    grid-column: 7 / 12;
+    padding: 0.85rem;
+  }
+
+  .box-3 strong {
+    font-size: 1.25rem;
+  }
+
+  .box p {
+    font-size: 0.85rem;
+  }
+
+  .box-label {
+    left: 0.75rem;
+    font-size: 0.6rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-head {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .section-number {
+    font-size: 2.5rem;
+  }
+
+  .services,
+  .process,
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .service:last-child {
+    grid-column: auto;
+  }
+
+  .service,
+  .step,
+  .pack-main,
+  .pack-side,
+  .form {
+    padding: 1.4rem;
+  }
+
+  .contact-grid {
+    gap: 2rem;
+  }
+
+  .form {
+    box-shadow: 5px 5px 0 var(--orange);
+  }
+
+  .faq summary {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .whatsapp-float {
+    right: 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* 19. Préférences d'accessibilité */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
